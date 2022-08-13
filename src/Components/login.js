@@ -1,64 +1,61 @@
-import React, { useState } from 'react'
-import './login.css'
-
-import axios from "axios";
+import React from "react";
+import "./login.css"
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from "react";
 
-const Login=()=> {
-    const navigate=useNavigate()
-    const [data,setdata]= useState({
+
+const Login = () => {
+    const Navigate=useNavigate();
+
+    const [data,setdata]=useState({
         "userName":"",
         "password":""
       })
-   
 
-      const handleLogin=(e)=>{
+      const handlesubmit=(e)=>{
         e.preventDefault()
-        if(data.password.length && data.userName.length){
-        axios.post("https://localhost:3001/userRegister/Signin",data).then((loginData)=>{
+        axios.post("http://localhost:3001/userRegister/login",data).then((loginData)=>{
           localStorage.setItem("authorization",loginData.data.Authtoken) 
-         
+          // console.log(localStorage.getItem("authorization"))
         
-          localStorage.setItem("Username", loginData.data.userName)
+          localStorage.setItem("username", loginData.data.username)
         
-        navigate("/body")
-        })}
-    }
-  return (
-    <>
+        Navigate("/body")
+        })
+        .catch((err)=>{
+          console.log(err)
+         })
+}
+
+      const handleinput=(e,id)=>{
+        setdata({...data,[id]:e.target.value})
+          }
+
+    return(
+        <>
       <div id="loginPg">
-        <div id='loginCard'>
-            <img src='./images.png' className='log' alt=''></img>
-            <h1>Member Login</h1>
-            <div className='inputDiv'>
-                <input 
-                    className='userinput' 
-                    type='text' 
-                    placeholder='UserName' 
-                    onChange={(e)=> {setdata({...data, userName: e.target.value})}}/>
-            </div>
-            <div className='inputDiv'>
-                <input 
-                    className='userinput' 
-                    type='password' 
-                    placeholder='password'
-                    onChange={(e)=> {setdata({...data, password: e.target.value})}}/>
-            </div>
-            <div className='inputDiv'>
-               <button className='userB' type='button' onClick={handleLogin}>LOGIN</button>
-            </div>
+      <div id='loginCard'>
+        <img src="./images.png" alt ="logo" className='log' />
+            
+        
+        <h1>Member Login</h1>
+            <form className="form">
+                <input type="text" placeholder='UserName' required className='userinput'  onChange={(e)=>handleinput(e,"userName")}/>
+                <input type="password" placeholder="Password" required className='userinput'  onChange={(e)=>handleinput(e,"password")}/>
+            </form>
+            <button className='userB' onClick={(e)=>handlesubmit(e)}>Login</button>
             <div className='bottom'>
-                <div className='b1'>
+                 <div className='b1'>
                     <a href='/register'>Register?</a>
                     <span className='b2'>Forgot password?</span>
-                    </div>
+                     </div>
                 
                 
             </div>
         </div>
       </div>
-    </>
-  )
+        </>
+    )
 }
-
 export default Login

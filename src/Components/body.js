@@ -4,10 +4,15 @@ import Sidebar from './sidebar'
 import './body.css'
 const Body=() =>{
     //const [twoButton, setTwoButton] = useState("");
+    const [start, setStart] = useState(false)
 
     const handleClick=(e)=>{
-
+        setStart(true);
+        if(start){
+            <td style={{color: "red"}}>End <div>Pause</div></td>
+        }
     }
+    
   return (
 
     <>
@@ -26,37 +31,37 @@ const Body=() =>{
             <td>Running</td>
             <td></td>
             <td></td>
-            <td><button type="" onClick={handleClick} >Start</button></td>
+            <td><button type=""  onClick={()=>{handleClick()}}>Start</button></td>
         </tr>
         <tr>
             <td>Drinking</td>
             <td></td>
             <td></td>
-            <td><button type="" onClick={handleClick}>Start</button></td>
+            <td><button type="" onClick={()=>{handleClick()}}>Start</button></td>
         </tr>
         <tr>
             <td>Sleeping</td>
             <td></td>
             <td></td>
-            <td><button type="" onClick={handleClick}>Start</button></td>
+            <td><button type="" onClick={()=>{handleClick()}}>Start</button></td>
         </tr>
         <tr>
             <td>Cooking</td>
             <td></td>
             <td></td>
-            <td><button type="" onClick={handleClick} >Start</button></td>
+            <td><button type="" onClick={()=>{handleClick()}} >Start</button></td>
         </tr>
         <tr>
             <td>Eating</td>
             <td></td>
             <td></td>
-            <td><button type="" onClick={handleClick}>Start</button></td>
+            <td><button type="" onClick={()=>{handleClick()}}>Start</button></td>
         </tr>
         <tr>
             <td>Washing</td>
             <td></td>
             <td></td>
-            <td><button type="" onClick={handleClick}>Start</button></td>
+            <td><button type="" onClick={()=>{handleClick()}}>Start</button></td>
         </tr>
     </table>
     </div>
