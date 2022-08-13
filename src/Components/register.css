@@ -1,0 +1,30 @@
+.body1{
+    background-color: rgb(16, 189, 189);
+}
+#regisCard{
+    width: 25%;
+    height: 600px;
+    background-color: aliceblue;
+    margin: 50px;
+    margin-left: 700px;
+    text-align: center;
+}
+.icon{
+    width: 30%;
+    height: 25%;
+    border-radius: 90px;
+}
+.regis{
+    width: 70%;
+    height: 40px;
+    margin-top: 10px;
+}
+#register{
+    width: 70%;
+    height: 40px;
+    margin-top: 10px;
+}
+.main{
+    margin-top: 20px;
+    color: red;
+}

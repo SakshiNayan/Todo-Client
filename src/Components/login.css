@@ -1,0 +1,48 @@
+/* #loginPg{
+    background-color: rgb(255, 123, 0);
+    
+} */
+#loginPg{
+    background-color: rgb(255, 123, 0);
+}
+
+#loginCard{
+    width: 25%;
+    height: 600px;
+    background-color: aliceblue;
+    margin: 50px;
+    margin-left: 700px;
+    text-align: center;
+}
+.log{
+    width: 30%;
+    height: 25%;
+    border-radius: 90px;
+}
+.userinput{
+    width: 70%;
+    height: 40px;
+    margin-top: 10px;
+}
+.userB{
+    width: 70%;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.inputDiv{
+    margin-top: 10px;
+}
+.bottom{
+    display: flex;
+    margin-left: 10px;
+
+}
+.b1{
+    width: 70%;
+    margin-top: 40px;
+}
+.b2{
+    float: right;
+    color: red;
+}
