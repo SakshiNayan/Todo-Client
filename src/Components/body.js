@@ -4,12 +4,14 @@ import Sidebar from './sidebar'
 import './body.css'
 const Body=() =>{
     //const [twoButton, setTwoButton] = useState("");
-    const [start, setStart] = useState(false)
+    const [start, setStart] = useState(true)
+    const [end , setEnd] = useState(false)
 
     const handleClick=(e)=>{
-        setStart(true);
-        if(start){
-            <td style={{color: "red"}}>End <div>Pause</div></td>
+         e.preventDefault();
+        setStart(false);
+        if(!start){
+            setEnd(true)
         }
     }
     
@@ -18,8 +20,13 @@ const Body=() =>{
     <>
     <Header/>
     <Sidebar/>
+    
 
     <div id='userTable'>
+    <div>
+    <button className="addAbtn" >Add Activity</button>
+    </div>
+    
     <table className='itemrow'>
         <tr>
             <th>Activity</th>
@@ -31,7 +38,7 @@ const Body=() =>{
             <td>Running</td>
             <td></td>
             <td></td>
-            <td><button type=""  onClick={()=>{handleClick()}}>Start</button></td>
+            <td>{start ? <button className="startbtn" onClick={()=>{handleClick()}}>Start</button> : <button className="startbtn2">End <div style={{color: "orange"}}>pause</div></button> }</td>
         </tr>
         <tr>
             <td>Drinking</td>

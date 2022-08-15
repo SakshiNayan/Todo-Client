@@ -1,13 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import "./sidebar.css"
 const Sidebar=()=> {
+  const Navigate=useNavigate()
+  const logoutHandler = () =>{
+    localStorage.setItem("authorization", "")
+    localStorage.setItem("userName", "")
+    Navigate("/");
+}
   return (
     <>
     <div className='sidebar'>
         <div className='h2'><h2>TODO LIST</h2></div>
         <div className='h3'><h3>History</h3></div>
-        <div className='logout'><Link to='/'><button id='b-logout' type="">LOGOUT</button></Link></div>
+        <div className='logout'><button id='b-logout' onClick={()=>{logoutHandler()}}>LOGOUT</button></div>
 
     </div>
       
