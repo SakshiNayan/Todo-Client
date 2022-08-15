@@ -11,7 +11,7 @@ const Register = () => {
         if(rdata.password === rdata.confirmpassword){
             console.log(rdata);
              axios({
-                url: "http://localhost:3001/userRegister/register",
+                url: "https://todo-server-pg.herokuapp.com/userRegister/register",
                 //url: "https://contactmanagerserver.herokuapp.com/user/signup",
                 method: "POST",
                 headers: {
