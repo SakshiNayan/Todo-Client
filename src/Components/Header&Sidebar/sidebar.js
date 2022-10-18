@@ -4,8 +4,8 @@ import "./sidebar.css"
 const Sidebar=()=> {
   const Navigate=useNavigate()
   const logoutHandler = () =>{
-    localStorage.setItem("authorization", "")
-    localStorage.setItem("userName", "")
+    localStorage.removeItem("authorization", "")
+    localStorage.removeItem("userName", "")
     Navigate("/");
 }
   return (

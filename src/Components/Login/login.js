@@ -15,11 +15,9 @@ const Login = () => {
 
       const handlesubmit=(e)=>{
         e.preventDefault()
-        axios.post("https://todo-server-pg.herokuapp.com/userRegister/login",data).then((loginData)=>{
-          localStorage.setItem("authorization",loginData.data.Authtoken) 
-          // console.log(localStorage.getItem("authorization"))
-        
-          localStorage.setItem("username", loginData.data.username)
+        axios.post("http://localhost:3001/userRegister/login",data).then((loginData)=>{
+          localStorage.setItem("authorization",loginData.data.Authtoken)        
+          localStorage.setItem("userName", loginData.data.userName)
         
         Navigate("/body")
         })

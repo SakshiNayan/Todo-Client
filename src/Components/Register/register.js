@@ -11,8 +11,8 @@ const Register = () => {
         if(rdata.password === rdata.confirmpassword){
             console.log(rdata);
              axios({
-                url: "https://todo-server-pg.herokuapp.com/userRegister/register",
-                //url: "https://contactmanagerserver.herokuapp.com/user/signup",
+                // url: "https://todo-server-pg.herokuapp.com/userRegister/register",
+                url: "http://localhost:3001/userRegister/register",
                 method: "POST",
                 headers: {
                 },
@@ -27,17 +27,20 @@ const Register = () => {
                 },2000)
                 console.log(err);
             })
-        }else{
+        }else if(!rdata.userName){
+            alert("User Already Exist")
+        }
+        else{
             alert("password & confirm password are not matching")
         }
         setrData({userName:"", password:"", confirmpassword:""})
     }
     const inputHandler = (e,id)=>{
-        if(id === "username"){
+        if(id === "userName"){
             setrData({...rdata, userName:e.target.value})
         }else if(id === "password"){
             setrData({...rdata, password:e.target.value})
-        }else{
+        }else if(id === "confirmpassword"){
             setrData({...rdata, confirmpassword:e.target.value})
         }
     }
@@ -51,17 +54,17 @@ const Register = () => {
                         
                     
                     <form onSubmit={(e) => handleData(e)}>
-                        <div className='userIn'><input  onChange={(e) => inputHandler(e, "username") }  className='regis' type="text"  value={rdata.userName} placeholder="User Name" ></input></div>
-                        <div className='userIn'><input  onChange={(e) => inputHandler(e, "password") } className='regis' type="password" value={rdata.password} placeholder="Password" ></input></div>
-                        <div className='userIn'><input   onChange={(e) => inputHandler(e, "confirmpassword")} className='regis' type="password" value={rdata.confirmpassword} placeholder="Confirm Password" ></input>
-                        {show ? <span className='error1'>Username Exit</span> : ""}
+                        <div className='userIn'><input id='userName'  onChange={(e) => inputHandler(e, "userName") } required className='regis' type="text"  value={rdata.userName} placeholder="User Name" ></input></div>
+                        <div className='userIn'><input id='password' onChange={(e) => inputHandler(e, "password") } required className='regis' type="password" value={rdata.password} placeholder="Password" ></input></div>
+                        <div className='userIn'><input id ='confirm-pass'  onChange={(e) => inputHandler(e, "confirmpassword")} required className='regis' type="password" value={rdata.confirmpassword} placeholder="Confirm Password" ></input>
+                        {/* {show ? <span className='error1'>Username Exit</span> : ""} */}
                         </div>
                         <div className='userIn'>
                         <button id='register' type="submit" >Register</button>
                         </div>
                         
                     </form>
-                    <div className='main'>Member Login</div>
+                    <div className='main'><a href='/'> Member Login </a></div>
                 </div>
             </div>
         </>

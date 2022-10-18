@@ -2,11 +2,12 @@ import React from 'react'
  import './header.css'
 const Header=()=> {
     const Authtoken=localStorage.getItem("authorization");
-    const username = localStorage.getItem("userName");
+    const UserName = localStorage.getItem("userName");
+    console.log(UserName)
   return (
     <>
       <div id="header1">
-        <p className='paraUser'>{username}User Name</p>
+        <p className='paraUser'>{UserName}</p>
         
       </div>
     </>

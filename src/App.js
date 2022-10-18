@@ -1,7 +1,7 @@
 import {Route,Routes,BrowserRouter} from "react-router-dom";
-import Login from "./Components/login"
-import Register from "./Components/register";
-import Body from "./Components/body";
+import Login from "./Components/Login/login"
+import Register from "./Components/Register/register";
+import Body from "./Components/Todo/body";
 
 function App() {
   return (
