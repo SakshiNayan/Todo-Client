@@ -132,7 +132,7 @@ const Body=() =>{
     const handleActivity = (e) => {
         e.preventDefault();
 
-        fetch("http://localhost:3001/userTodo/task", {
+        fetch("http://localhost:3001/userTodo/addtask", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -152,17 +152,17 @@ const Body=() =>{
   return (
 
     <>
-    <Header/>
+    <Header/><br></br>
     <Sidebar/>
     
 
     <div id='userTable'>
-        <div>
-        <Button className='activityBtn' variant="primary" onClick={handleShow}>
+        <div style={{float:"right",marginBottom:"20px"}}>
+        <Button className='activityBtn' variant="primary" onClick={handleShow} >
             Add Activity
         </Button>
         </div>
-    
+        <div>
         <table className='itemrow'>
             <thead>
                 <tr>
@@ -202,6 +202,7 @@ const Body=() =>{
 
             </tbody>
         </table>
+        </div>
     </div>
     <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
