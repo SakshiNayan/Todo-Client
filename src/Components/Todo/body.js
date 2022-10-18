@@ -14,8 +14,8 @@ const Body=() =>{
     const [ongoing, setOngoing] = useState(false);
     const [totalTime, setTotalTime] = useState(null);
     const [activity, setactivity] = React.useState({
-        activity: ""
-        //status: ""
+        activity: "",
+        status: ""
         //Time_taken: 0,
       });
     const [completed, setcompleted] =useState(false)
@@ -30,7 +30,7 @@ const Body=() =>{
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: localStorage.getItem("authorization"),
+                Authorization: localStorage.getItem("AuthToken"),
             },
         })
             .then((res) => res.json())
@@ -136,7 +136,7 @@ const Body=() =>{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: localStorage.getItem("authorization"),
+                Authorization: localStorage.getItem("AuthToken"),
             },
             body: JSON.stringify(activity),
         })
